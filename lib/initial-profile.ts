@@ -6,6 +6,7 @@ import { Profile } from "@prisma/client";
 export const initialProfile = async (): Promise<Profile> => {
   const user = await currentUser();
 
+  //Redirect to Sign In Screen if There's no User
   if (!user) {
     redirectToSignIn();
     throw new Error("User not authenticated.");
